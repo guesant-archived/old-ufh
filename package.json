@@ -1,5 +1,8 @@
 {
   "private": true,
+  "workspaces": [
+    "helpers/utils/*"
+  ],
   "scripts": {
     "format": "prettier --write .",
     "prepare": "husky install"

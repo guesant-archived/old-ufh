@@ -25,7 +25,7 @@ Handler definitions that renders the OpenedFileContext's file.
 
 - Used by `app`.
 
-#### `app-utils-\*`
+#### `helpers/utils/\*`
 
 Useful JavaScript functions that is used by other packages.
 
