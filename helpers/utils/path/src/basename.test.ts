@@ -1,7 +1,16 @@
 import { basename } from "./basename";
 
-test("basename", () => {
-  expect(basename("arquivo.txt")).toBe("arquivo.txt");
-  expect(basename("/arquivo.txt")).toBe("arquivo.txt");
-  expect(basename("caminho/ao/arquivo.txt")).toBe("arquivo.txt");
+describe("basename", () => {
+  it("basename from an relative filename", () => {
+    expect(basename("arquivo.txt")).toBe("arquivo.txt");
+  });
+  it("basename from file inside the root directory", () => {
+    expect(basename("/arquivo.txt")).toBe("arquivo.txt");
+  });
+  it("basename from relative subdirectories", () => {
+    expect(basename("caminho/ao/arquivo.txt")).toBe("arquivo.txt");
+  });
+  it("basename from root subdirectories", () => {
+    expect(basename("/caminho/ao/arquivo.txt")).toBe("arquivo.txt");
+  });
 });

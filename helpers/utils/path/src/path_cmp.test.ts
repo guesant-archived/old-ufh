@@ -1,15 +1,19 @@
 import { path_cmp } from "./path_cmp";
 
-test("path_cmp: compare between diffrent types. file should came after the directory", () => {
-  const [dir, file] = ["1/", "file"];
-  expect(path_cmp(file, dir)).toBe(1);
-  expect(path_cmp(dir, file)).toBe(-1);
-});
+describe("path_cmp", () => {
+  it("files should came after directories", () => {
+    expect(path_cmp("file", "1/")).toBe(1);
+  });
 
-test("path_cmp: compare between same types", () => {
-  const [dir1, dir2] = ["1/", "2/"];
-  expect(path_cmp(dir1, dir2)).toBe(0);
+  it("directories should came before files", () => {
+    expect(path_cmp("1/", "file")).toBe(-1);
+  });
 
-  const [file1, file2] = ["1", "2"];
-  expect(path_cmp(file1, file2)).toBe(0);
+  it("two files has no change", () => {
+    expect(path_cmp("1", "2")).toBe(0);
+  });
+
+  it("two directories has no change", () => {
+    expect(path_cmp("1/", "2/")).toBe(0);
+  });
 });

@@ -1,9 +1,19 @@
 import { isdir } from "./isdir";
 
-test("isdir", () => {
-  expect(isdir("")).toBe(false);
-  expect(isdir("/")).toBe(true);
-  expect(isdir("/arquivo")).toBe(false);
-  expect(isdir("/arquivo/")).toBe(true);
-  expect(isdir("arquivo/")).toBe(true);
+describe("isdir", () => {
+  it("empty string is not an directory", () => {
+    expect(isdir("")).toBe(false);
+  });
+  it("root directory", () => {
+    expect(isdir("/")).toBe(true);
+  });
+  it("file within root directory", () => {
+    expect(isdir("/arquivo")).toBe(false);
+  });
+  it("directory within root directory", () => {
+    expect(isdir("/arquivo/")).toBe(true);
+  });
+  it("relative directory", () => {
+    expect(isdir("arquivo/")).toBe(true);
+  });
 });
