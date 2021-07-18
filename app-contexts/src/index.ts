@@ -1,3 +1,4 @@
+export * from "./contexts/GlobHandlersContext";
 export * from "./contexts/HandlersContext";
 export * from "./contexts/OpenedFileContext";
 export * from "./contexts/OpenedFilesContext";
