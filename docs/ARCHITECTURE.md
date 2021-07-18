@@ -6,27 +6,33 @@ This document is designed to provide a simple overview of the architecture and w
 
 The codebase is mostly centered around 4 different types of code.
 
-#### `app`
+#### [`app`](../app)
 
-The end user app, made with [ReactJS](https://reactjs.org/) and the [ViteJS](https://vitejs.dev/) toolchain.
+User-end app, that will be served in the World Wide Web. Made with [ReactJS](https://reactjs.org/) and the [ViteJS](https://vitejs.dev/) toolchain.
 
 ```sh
 # start the development server
 yarn dev
 ```
 
-#### `app-contexts`
+```sh
+# build the app to the `dist` folder
+yarn build
+```
 
-React Contexts that can be used across all the project packages.
+#### [`app-contexts`](../app-contexts)
 
-#### `app-handler-\*`
+[React Contexts](https://reactjs.org/docs/context.html) that can be used across all the project packages.
 
-Handler definitions that renders the OpenedFileContext's file.
+#### [`app-handler-*`](../)
 
-- Used by `app`.
+Generally React Components that will be used as an User Interface to the selected file.
 
-#### `app-utils-\*`
+The selected file reference comes from `OpenedFileContext`.
 
-Useful JavaScript functions that is used by other packages.
+- Used in the [`app`](#app) package.
+- `OpenedFileContext` comes from [`app-contexts`](#app-contexts).
 
-- Used by `app-handlers`.
+#### [`helpers/utils/*`](../helpers/utils/)
+
+JavaScript library that can used by other packages.
