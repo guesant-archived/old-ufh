@@ -1,4 +1,4 @@
-# universal-file-handler contribution guidelines
+# Contribution Guidelines
 
 ## Crashes & Bugs
 

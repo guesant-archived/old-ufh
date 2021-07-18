@@ -6,9 +6,13 @@ O universal-file-handler é uma plataforma focada em manipulação de arquivos. 
 
 ## Contributing
 
-This project accepts most contributions as long as they follow the [Contribution Guidelines](./docs/CONTRIBUTING.md).
+Este projeto aceita a maioria das contribuições, desde que sigam as [Diretrizes de Contribuição](./docs/CONTRIBUTING.md).
 
-Checkout the [docs](./docs) folder and happy hacking!
+A arquitetura do projeto está documentada em [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)
+
+Leia mais em [docs](./docs).
+
+Happy Hacking!
 
 ## License
 

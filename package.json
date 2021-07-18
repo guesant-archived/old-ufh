@@ -8,7 +8,8 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+    "**/*": "prettier --write --ignore-unknown",
+    "helpers/utils/*": "yarn test"
   },
   "dependencies": {
     "husky": "^7.0.1",
