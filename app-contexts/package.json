@@ -2,13 +2,19 @@
   "name": "@ufh/react-contexts",
   "version": "1.0.0",
   "private": true,
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "tsc --noEmit"
+  },
   "dependencies": {
+    "nanoid": "^3.1.23",
     "use-context-selector": "^1.3.7"
   },
   "peerDependencies": {
     "react": "^17.0.2"
   },
   "devDependencies": {
-    "@types/react": "^17.0.14"
+    "@types/react": "^17.0.14",
+    "typescript": "^4.3.5"
   }
 }
