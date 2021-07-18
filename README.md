@@ -8,7 +8,7 @@ O universal-file-handler é uma plataforma focada em manipulação de arquivos. 
 
 This project accepts most contributions as long as they follow the [Contribution Guidelines](./CONTRIBUTING.md).
 
-Checkout the [docs][./docs] folder and happy hacking!
+Checkout the [docs](./docs) folder and happy hacking!
 
 ## License
 
