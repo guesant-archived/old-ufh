@@ -22,7 +22,7 @@ yarn build
 
 #### [`services`](../services)
 
-Web Application related.
+Common files shared across all the app packages, souch as React Contexts.
 
 For example:
 
@@ -34,12 +34,6 @@ For example:
 
 #### [`handlers/handler-*`](../handlers)
 
-React Components that is used by [`app`](#app) as User Interface to the selected file.
-
-The selected file reference comes from `OpenedFileContext`.
+User Interfaces that renders the selected file from the `OpenedFileContext`.
 
 - `OpenedFileContext` comes from [`services`](#services).
-
-#### [`helpers/utils/*`](../helpers/utils/)
-
-JavaScript library that can used by other packages.
