@@ -1,4 +1,4 @@
-import { OpenedFile } from "../services/OpenedFile";
+import { OpenedFile } from "../OpenedFile";
 import { createContext } from "use-context-selector";
 
 type IOpenedFileContext = {

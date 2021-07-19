@@ -2,7 +2,8 @@
   "private": true,
   "workspaces": [
     "app",
-    "app-contexts",
+    "contexts",
+    "handlers/handler-*",
     "helpers/utils/*"
   ],
   "scripts": {

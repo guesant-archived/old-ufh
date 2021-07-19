@@ -1,4 +1,4 @@
-import { OpenedFile } from "../services/OpenedFile";
+import { OpenedFile } from "../OpenedFile";
 import React from "react";
 import { OpenedFileContext } from "../contexts/OpenedFileContext";
 
