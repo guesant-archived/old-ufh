@@ -4,8 +4,7 @@
   "private": true,
   "main": "src/index.ts",
   "scripts": {
-    "build": "tsc -p .",
-    "prepare": "yarn test && (rm -r dist; yarn build)",
+    "prepare": "yarn test",
     "test": "tsc --noEmit; jest"
   },
   "dependencies": {
