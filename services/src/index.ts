@@ -3,6 +3,7 @@ export * from "./types/IGlobHandler";
 export * from "./types/IHandlerDefinition";
 // utils
 export * from "./utils/buffer_from_file";
+export * from "./utils/setup_file_input";
 export * from "./OpenedFile";
 // helpers
 export * as path from "./helpers/path";
