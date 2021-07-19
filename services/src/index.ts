@@ -12,5 +12,6 @@ export * from "./contexts/HandlersContext";
 export * from "./contexts/OpenedFileContext";
 export * from "./contexts/OpenedFilesContext";
 // providers
+export * from "./providers/HandlersProvider";
 export * from "./providers/OpenedFileContextProvider";
 export * from "./providers/OpenedFilesContextProvider";
