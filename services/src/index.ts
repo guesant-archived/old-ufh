@@ -1,7 +1,11 @@
+// utils
+export * from "./utils/buffer_from_file";
+// contexts
 export * from "./contexts/GlobHandlersContext";
 export * from "./contexts/HandlersContext";
 export * from "./contexts/OpenedFileContext";
 export * from "./contexts/OpenedFilesContext";
+// providers
 export * from "./providers/OpenedFileContextProvider";
 export * from "./OpenedFile";
 export * from "./types/IGlobHandler";
