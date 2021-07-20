@@ -10,6 +10,7 @@ import {
   Link as RouterLink,
   LinkProps as RouterLinkProps,
 } from "react-router-dom";
+import { ROUTE_SETTINGS } from "../../routes";
 
 const Link: React.FC<RouterLinkProps> = ({ ...props }) => (
   <RouterLink {...props} style={{ color: "inherit", textDecoration: "none" }} />
@@ -40,7 +41,7 @@ const HomeHeaderMenu = () => {
         onClose={handleClose}
         open={anchorEl !== null}
       >
-        <Link to="/settings">
+        <Link to={ROUTE_SETTINGS()}>
           <MenuItem>
             <ListItemIcon>
               <SettingsIcon />
