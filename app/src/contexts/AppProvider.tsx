@@ -1,4 +1,5 @@
 import CssBaseline from "@material-ui/core/CssBaseline";
+import { HandlersProvider } from "@ufh/react-services/src/providers/HandlersProvider";
 import React from "react";
 import { ThemeProvider } from "./ThemeProvider";
 
@@ -7,7 +8,9 @@ const AppProvider: React.FC = ({ children }) => {
     <>
       <CssBaseline />
       <ThemeProvider>
-        <>{children}</>
+        <HandlersProvider>
+          <>{children}</>
+        </HandlersProvider>
       </ThemeProvider>
     </>
   );
