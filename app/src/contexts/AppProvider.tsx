@@ -1,4 +1,5 @@
 import CssBaseline from "@material-ui/core/CssBaseline";
+import { GlobHandlersProvider } from "@ufh/react-services/src/providers/GlobHandlersProvider";
 import { HandlersProvider } from "@ufh/react-services/src/providers/HandlersProvider";
 import React from "react";
 import { ThemeProvider } from "./ThemeProvider";
@@ -9,7 +10,9 @@ const AppProvider: React.FC = ({ children }) => {
       <CssBaseline />
       <ThemeProvider>
         <HandlersProvider>
-          <>{children}</>
+          <GlobHandlersProvider>
+            <>{children}</>
+          </GlobHandlersProvider>
         </HandlersProvider>
       </ThemeProvider>
     </>
