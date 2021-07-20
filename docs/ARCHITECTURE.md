@@ -8,32 +8,26 @@ The codebase is mostly centered around 4 different types of code.
 
 #### [`app`](../app)
 
-User-end app, that will be served in the World Wide Web. Made with [ReactJS](https://reactjs.org/) and the [ViteJS](https://vitejs.dev/) toolchain.
+Aplicação [ReactJS](https://reactjs.org/) feita com [ViteJS](https://vitejs.dev/), com os scripts `dev` e `build` configurados.
 
 ```sh
-# start the development server
+# inicia o servidor de desenvolvimento em "http://localhost:3000"
 yarn dev
+xdg-open http://localhost:3000 &>/dev/null
 ```
 
 ```sh
-# build the app to the `dist` folder
+# gera os arquivos de produção na pasta "dist"
 yarn build
 ```
 
 #### [`services`](../services)
 
-Common files shared across all the app packages, souch as React Contexts.
+Arquivos compartilhados que são usados em outros pacotes do projeto.
+Exemplo: React Contexts compartilhados entre o [`app`](#app) e os [`handlers`](#handlers/*).
 
-For example:
+#### [`handlers/*`](../handlers)
 
-- [Opened File](https://reactjs.org/docs/context.html) that adds an uuid to [File](https://developer.mozilla.org/en-US/docs/Web/API/File).
+Interfaces de Usuário que apresentará o arquivo selecionado ao usuário.
 
-- [React Contexts](https://reactjs.org/docs/context.html) that can be used across all the project packages.
-
-- TypeScript [type definitions](../services/src/types).
-
-#### [`handlers/handler-*`](../handlers)
-
-User Interfaces that renders the selected file from the `OpenedFileContext`.
-
-- `OpenedFileContext` comes from [`services`](#services).
+- `OpenedFileContext` vem de [`services`](#services).
