@@ -4,8 +4,16 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Typography from "@material-ui/core/Typography";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import SettingsIcon from "@material-ui/icons/Settings";
 import React, { useState, useCallback } from "react";
-import { Link } from "react-router-dom";
+import {
+  Link as RouterLink,
+  LinkProps as RouterLinkProps,
+} from "react-router-dom";
+
+const Link: React.FC<RouterLinkProps> = ({ ...props }) => (
+  <RouterLink {...props} style={{ color: "inherit", textDecoration: "none" }} />
+);
 
 const HomeHeaderMenu = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -32,6 +40,16 @@ const HomeHeaderMenu = () => {
         onClose={handleClose}
         open={anchorEl !== null}
       >
+        <Link to="/settings">
+          <MenuItem>
+            <ListItemIcon>
+              <SettingsIcon />
+            </ListItemIcon>
+            <Typography variant="inherit" noWrap>
+              Configurações
+            </Typography>
+          </MenuItem>
+        </Link>
       </Menu>
     </>
   );

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { setupDefaultHandlers } from "./utils/setupDefaultHandlers";
 
 const Home = loadable(() => import("./components/Home/Home"));
+const Settings = loadable(() => import("./components/Settings/Settings"));
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -26,6 +27,9 @@ const App = () => {
         <Switch>
           <Route path="/" exact>
             <Home />
+          </Route>
+          <Route path="/settings">
+            <Settings />
           </Route>
         </Switch>
       </Router>
