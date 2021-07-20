@@ -20,19 +20,20 @@ yarn dev
 yarn build
 ```
 
-#### [`app-contexts`](../app-contexts)
+#### [`services`](../services)
 
-[React Contexts](https://reactjs.org/docs/context.html) that can be used across all the project packages.
+Common files shared across all the app packages, souch as React Contexts.
 
-#### [`app-handler-*`](../)
+For example:
 
-Generally React Components that will be used as an User Interface to the selected file.
+- [Opened File](https://reactjs.org/docs/context.html) that adds an uuid to [File](https://developer.mozilla.org/en-US/docs/Web/API/File).
 
-The selected file reference comes from `OpenedFileContext`.
+- [React Contexts](https://reactjs.org/docs/context.html) that can be used across all the project packages.
 
-- Used in the [`app`](#app) package.
-- `OpenedFileContext` comes from [`app-contexts`](#app-contexts).
+- TypeScript [type definitions](../services/src/types).
 
-#### [`helpers/utils/*`](../helpers/utils/)
+#### [`handlers/handler-*`](../handlers)
 
-JavaScript library that can used by other packages.
+User Interfaces that renders the selected file from the `OpenedFileContext`.
+
+- `OpenedFileContext` comes from [`services`](#services).
