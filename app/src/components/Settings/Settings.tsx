@@ -8,6 +8,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ROUTE_HOME } from "../../routes";
 import AppBar from "../AppBar";
+import SettingsGlobHandlers from "./SettingsGlobHandlers";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -44,7 +45,9 @@ const Settings = () => {
         classes={{ paper: styles.dialogPaper }}
       >
         <SettingsHeader />
-        <DialogContent className={styles.dialogContent}></DialogContent>
+        <DialogContent className={styles.dialogContent}>
+          <SettingsGlobHandlers />
+        </DialogContent>
       </Dialog>
     </div>
   );
