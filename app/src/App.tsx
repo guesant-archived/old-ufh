@@ -4,7 +4,8 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { setupDefaultHandlers } from "./utils/setupDefaultHandlers";
 
-const Home = loadable(() => import("./pages/Home/Home"));
+const Home = loadable(() => import("./components/Home/Home"));
+
 const useStyles = makeStyles((theme) =>
   createStyles({
     appcontainer: {
