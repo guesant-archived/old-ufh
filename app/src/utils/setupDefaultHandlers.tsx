@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useContextSelector } from "use-context-selector";
-import { HandlersContext } from "../../../services/src";
+import { HandlersContext } from "@ufh/react-services/src/contexts/HandlersContext";
 import { APP_DEFAULT_HANDLERS } from "../APP_DEFAULT_HANDLERS";
 
 export const setupDefaultHandlers = () => {

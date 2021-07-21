@@ -3,16 +3,19 @@ import { IHandlerDefinition } from "../types/IHandlerDefinition";
 import React, { useCallback, useState } from "react";
 
 export const HandlersProvider: React.FC = ({ children }) => {
-  const [handlersList, setHandlersList] = useState<IHandlerDefinition[]>([]);
+  const [list, setList] = useState<IHandlerDefinition[]>([]);
 
   const addHandler = useCallback((handler: IHandlerDefinition) => {
-    setHandlersList((list) =>
-      ([] as IHandlerDefinition[]).concat(list, handler)
+    setList((list) =>
+      ([] as IHandlerDefinition[]).concat(
+        list.filter((i) => i.id !== handler.id),
+        handler
+      )
     );
   }, []);
 
   const removeHandler = useCallback((id: IHandlerDefinition["id"]) => {
-    setHandlersList((list) => {
+    setList((list) => {
       const handlerIndex = list.findIndex((i) => i.id === id);
 
       const [before, after] =
@@ -25,17 +28,16 @@ export const HandlersProvider: React.FC = ({ children }) => {
   }, []);
 
   const getHandler = useCallback(
-    (id: IHandlerDefinition["id"]) =>
-      handlersList.find((i) => i.id === id) || null,
-    [handlersList]
+    (id: IHandlerDefinition["id"]) => list.find((i) => i.id === id) || null,
+    [list]
   );
 
   return (
     <HandlersContext.Provider
       children={children}
       value={{
-        list: handlersList,
-        setList: setHandlersList,
+        list,
+        setList,
         getHandler,
         addHandler,
         removeHandler,

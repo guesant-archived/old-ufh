@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import { GlobHandlersContext } from "@ufh/react-services/src/contexts/GlobHandlersContext";
 import React, { Fragment } from "react";
 import { useContextSelector } from "use-context-selector";
-import { IGlobHandler } from "../../../../services/src";
+import { IGlobHandler } from "@ufh/react-services/src/types/IGlobHandler";
 import EntryGlobHandler from "../EntryGlobHandler/EntryGlobHandler";
 import { EntryGlobHandlerContextProvider } from "../EntryGlobHandler/EntryGlobHandlerContextProvider";
 
