@@ -3,7 +3,7 @@ import React from "react";
 import { HomeContextProvider } from "./HomeContextProvider";
 import HomeHeader from "./HomeHeader";
 
-const HomeContent = loadable(() => import("./HomeContent"));
+const HomeContent = loadable(() => import("./HomeBody"));
 
 const Home = () => (
   <div>

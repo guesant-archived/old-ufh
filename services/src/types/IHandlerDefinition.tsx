@@ -1,13 +1,14 @@
-import { ComponentType } from "react";
+import { LoadableComponent } from "@loadable/component";
 
 export type IHandlerDefinitionMeta = {
-  slug: string;
-  title: string;
-  description: string;
+  slug?: string;
+  title?: string;
+  description?: string;
 };
 
 export type IHandlerDefinition<Meta = IHandlerDefinitionMeta> = {
   id: string;
   meta?: Meta;
-  Component: ComponentType;
+  Component: LoadableComponent<unknown>;
+  // Component: ComponentType;
 };

@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { GlobHandlersContext } from "../contexts/GlobHandlersContext";
 import { IGlobHandler } from "../types/IGlobHandler";
 
-const getRandomGlobHandler = (): IGlobHandler => ({
+const getNewGlobHandler = (): IGlobHandler => ({
   pattern: "",
   handlers: [],
   _id: nanoid(),
@@ -23,7 +23,7 @@ export const GlobHandlersProvider: React.FC = ({ children }) => {
         const globExplorerList = filterGlobExplorerList(_globExplorerList);
 
         const globHandler: IGlobHandler = {
-          ...getRandomGlobHandler(),
+          ...getNewGlobHandler(),
           ...value,
         };
 
