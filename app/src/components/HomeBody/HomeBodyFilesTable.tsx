@@ -1,7 +1,7 @@
 import loadable from "@loadable/component";
 import React from "react";
 import { useContextSelector } from "use-context-selector";
-import { HomeContext } from "./HomeContext";
+import { HomeContext } from "../Home/HomeContext";
 
 const FilesTable = loadable(() => import("../FilesTable"));
 

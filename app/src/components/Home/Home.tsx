@@ -1,15 +1,15 @@
 import loadable from "@loadable/component";
 import React from "react";
 import { HomeContextProvider } from "./HomeContextProvider";
-import HomeHeader from "./HomeHeader";
+import HomeHeader from "../HomeHeader/HomeHeader";
 
-const HomeContent = loadable(() => import("./HomeBody"));
+const HomeBody = loadable(() => import("../HomeBody/HomeBody"));
 
 const Home = () => (
   <div>
     <HomeHeader />
     <HomeContextProvider>
-      <HomeContent />
+      <HomeBody />
     </HomeContextProvider>
   </div>
 );

@@ -4,7 +4,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import React from "react";
 import { useCallback } from "react";
 import { useContextSelector } from "use-context-selector";
-import { HomeContext } from "./HomeContext";
+import { HomeContext } from "../Home/HomeContext";
 import CloseIcon from "@material-ui/icons/Close";
 import IconButton from "@material-ui/core/IconButton";
 import GlobHandler from "@ufh/react-handler-glob";
@@ -57,6 +57,13 @@ const HomeHandlerDialog = () => {
     ({ setOpenedFile }) => setOpenedFile
   );
 
+  const rotate = useContextSelector(HomeContext, ({ rotate }) => rotate);
+
+  const canRotate = useContextSelector(
+    HomeContext,
+    ({ canRotate }) => canRotate
+  );
+
   const closeDialog = useCallback(() => setOpenedFile(null), []);
 
   if (openedFile) {
@@ -64,8 +71,8 @@ const HomeHandlerDialog = () => {
       <div>
         <Dialog
           fullWidth
+          fullScreen
           maxWidth="lg"
-          onClose={closeDialog}
           open={openedFile !== null}
           classes={{ paper: styles.dialogPaper }}
         >
@@ -74,14 +81,24 @@ const HomeHandlerDialog = () => {
               <Typography className={styles.dialogTitleTypography}>
                 {openedFile.name}
               </Typography>
-              <IconButton color="inherit">
+              <IconButton
+                size="medium"
+                disabled={!canRotate(-1)}
+                onClick={() => rotate(-1)}
+                color="inherit"
+              >
                 <NavigateBeforeIcon />
               </IconButton>
-              <IconButton color="inherit">
+              <IconButton
+                size="medium"
+                disabled={!canRotate(1)}
+                onClick={() => rotate(1)}
+                color="inherit"
+              >
                 <NavigateNextIcon />
               </IconButton>
               <Divider orientation="vertical" className={styles.titleDivider} />
-              <IconButton onClick={closeDialog} color="inherit">
+              <IconButton size="medium" onClick={closeDialog} color="inherit">
                 <CloseIcon />
               </IconButton>
             </DialogTitle>

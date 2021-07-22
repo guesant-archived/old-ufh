@@ -3,8 +3,8 @@ import { createStyles, makeStyles } from "@material-ui/core";
 import { OpenedFileContextProvider } from "@ufh/react-services/src/providers/OpenedFileContextProvider";
 import React, { memo } from "react";
 import { useContextSelector } from "use-context-selector";
-import HomeAddFiles from "./HomeBodyAddFiles";
-import { HomeContext } from "./HomeContext";
+import HomeBodyAddFiles from "./HomeBodyAddFiles";
+import { HomeContext } from "../Home/HomeContext";
 import { HomeFilesTable } from "./HomeBodyFilesTable";
 
 const HomeHandlerDialog = loadable(() => import("./HomeBodyHandlerDialog"));
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) =>
   })
 );
 
-const HomeContent = memo(() => {
+const HomeBody = memo(() => {
   const styles = useStyles();
 
   const openedFile = useContextSelector(
@@ -37,16 +37,16 @@ const HomeContent = memo(() => {
     <div className={styles.container}>
       <div className={styles.homeFilesToolbar}>
         <div className={styles.homeFilesToolbarSpace}></div>
-        <HomeAddFiles />
+        <HomeBodyAddFiles />
       </div>
       <HomeFilesTable />
       {openedFile && (
         <OpenedFileContextProvider openedFile={openedFile}>
-          <HomeHandlerDialog key={openedFile.id} />
+          <HomeHandlerDialog />
         </OpenedFileContextProvider>
       )}
     </div>
   );
 });
 
-export default HomeContent;
+export default HomeBody;

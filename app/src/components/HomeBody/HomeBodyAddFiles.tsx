@@ -3,7 +3,7 @@ import AddIcon from "@material-ui/icons/Add";
 import React from "react";
 import { usePromptOpenFiles } from "@ufh/react-services/src/hooks/usePromptOpenFiles";
 
-const HomeAddFiles = () => {
+const HomeBodyAddFiles = () => {
   const promptOpenFiles = usePromptOpenFiles();
   return (
     <Button
@@ -16,4 +16,4 @@ const HomeAddFiles = () => {
   );
 };
 
-export default HomeAddFiles;
+export default HomeBodyAddFiles;
