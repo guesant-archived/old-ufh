@@ -1,0 +1,18 @@
+{
+  "name": "@ufh/react-handler-monaco",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "dependencies": {
+    "@loadable/component": "^5.15.0",
+    "@monaco-editor/react": "^4.2.1",
+    "@ufh/react-services": "1.0.0",
+    "react-query": "^3.19.0",
+    "use-context-selector": "^1.3.7"
+  },
+  "peerDependencies": {
+    "@material-ui/core": "^4.12.2"
+  },
+  "devDependencies": {
+    "@types/loadable__component": "^5.13.4"
+  }
+}
