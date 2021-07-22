@@ -8,14 +8,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ROUTE_HOME } from "../../routes";
 import AppBar from "../AppBar";
-import SettingsGlobHandlers from "./SettingsGlobHandlers";
+import SettingsGlobHandlers from "../SettingsGlobHandlers/SettingsGlobHandlers";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
     dialogPaper: {
       height: "100%",
+      overflow: "hidden",
     },
     dialogContent: {
+      height: "100%",
+      overflow: "hidden",
       paddingTop: theme.spacing(2),
       paddingBottom: theme.spacing(2),
     },
