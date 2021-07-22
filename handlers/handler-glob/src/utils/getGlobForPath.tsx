@@ -1,1 +1,1 @@
-export const getGlobForPath = (path: string) => `*${path.match(/\.[^.]+$/)}`;
+export const getGlobForPath = (path: string) => `**/*${path.match(/\.[^.]+$/)}`;

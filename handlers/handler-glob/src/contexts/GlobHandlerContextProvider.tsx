@@ -30,7 +30,7 @@ export const GlobHandlerContextProvider: React.FC<{}> = ({ children }) => {
         ? addGlobHandler({ pattern: glob, handlers: [value.id] })
         : setSelectedHandlerDefinition(value);
     },
-    [addGlobHandler, rememberSelection, setSelectedHandlerDefinition]
+    [addGlobHandler, rememberSelection, setSelectedHandlerDefinition, glob]
   );
 
   return (

@@ -5,9 +5,9 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import React from "react";
 import { useMatchedHandlersFromGlobHandler } from "../../hooks/useMatchedHandlersFromGlobHandler";
-import SelectHandlerHeader from "./SelectHandlerHeader";
-import SelectHandlerList from "./SelectHandlerList";
-import SelectHandlerRemember from "./SelectHandlerRemember";
+import SelectHandlerHeader from "../SelectHandlerHeader/SelectHandlerHeader";
+import SelectHandlerList from "../SelectHandlerList/SelectHandlerList";
+import SelectHandlerRemember from "../SelectHandlerRemember/SelectHandlerRemember";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -15,8 +15,8 @@ const useStyles = makeStyles((theme) =>
       flex: 1,
     },
     container: {
-      display: "flex",
       height: "100%",
+      display: "flex",
       flexDirection: "column",
       padding: theme.spacing(3),
     },

@@ -1,7 +1,9 @@
 import loadable from "@loadable/component";
 import { IHandlerDefinition } from "@ufh/react-services/src/types/IHandlerDefinition";
 
-const GlobHandlerComponent = loadable(() => import("./components/GlobHandler"));
+const GlobHandlerComponent = loadable(
+  () => import("./components/GlobHandler/GlobHandler")
+);
 
 const GlobHandlerDefinition: IHandlerDefinition = {
   Component: GlobHandlerComponent,
