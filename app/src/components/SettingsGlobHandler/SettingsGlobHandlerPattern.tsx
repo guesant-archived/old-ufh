@@ -1,16 +1,16 @@
 import TextField from "@material-ui/core/TextField";
-import React, { useCallback } from "react";
+import React, { useCallback, memo } from "react";
 import { useContextSelector } from "use-context-selector";
-import { EntryGlobHandlerContext } from "./EntryGlobHandlerContext";
+import { SettingsGlobHandlerContext } from "./contexts/SettingsGlobHandlerContext";
 
-const GlobHandlerEntryPattern = () => {
+const SettingsGlobHandlerPattern = memo(() => {
   const pattern = useContextSelector(
-    EntryGlobHandlerContext,
+    SettingsGlobHandlerContext,
     ({ globHandler: { pattern } }) => pattern
   );
 
   const updateGlobHandler = useContextSelector(
-    EntryGlobHandlerContext,
+    SettingsGlobHandlerContext,
     ({ updateGlobHandler }) => updateGlobHandler
   );
 
@@ -34,6 +34,6 @@ const GlobHandlerEntryPattern = () => {
       onFocus={(e) => e.target.select()}
     />
   );
-};
+});
 
-export default GlobHandlerEntryPattern;
+export default SettingsGlobHandlerPattern;

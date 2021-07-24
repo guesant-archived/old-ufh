@@ -1,20 +1,28 @@
-import { IHandlerDefinition } from "@ufh/react-services/src/types/IHandlerDefinition";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useMatchedGlobHandler } from "./useMatchedGlobHandler";
 import { useMatchedHandlersFromGlobHandler } from "./useMatchedHandlersFromGlobHandler";
+import { IMatchedHandler } from "./IMatchedHandler";
+import { ISelectedHandler } from "./ISelectedHandler";
 
 export const useMatchedHandlersSelectionFromGlobHandler = () => {
   const matchedGlobHandler = useMatchedGlobHandler();
   const matchedHandlers = useMatchedHandlersFromGlobHandler();
 
   const [selectedHandlerDefinition, setSelectedHandlerDefinition] =
-    useState<IHandlerDefinition | null>(null);
+    useState<ISelectedHandler | null>(null);
+
+  const changeSelectedHandlerDefinition = useCallback((matchedHandler: IMatchedHandler | null) => {
+    if (matchedHandler) {
+      const { definition, config } = matchedHandler;
+      setSelectedHandlerDefinition({ definition, config });
+    } else {
+      setSelectedHandlerDefinition(null);
+    }
+  }, []);
 
   useEffect(() => {
-    setSelectedHandlerDefinition(
-      matchedGlobHandler && matchedHandlers?.length === 1
-        ? matchedHandlers[0]
-        : null
+    changeSelectedHandlerDefinition(
+      matchedGlobHandler && matchedHandlers?.length === 1 ? matchedHandlers[0] : null
     );
   }, [matchedGlobHandler, matchedHandlers]);
 

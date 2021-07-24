@@ -47,22 +47,13 @@ const useStyles = makeStyles((theme) =>
 const HomeHandlerDialog = () => {
   const styles = useStyles();
 
-  const openedFile = useContextSelector(
-    HomeContext,
-    ({ openedFile }) => openedFile
-  );
+  const openedFile = useContextSelector(HomeContext, ({ openedFile }) => openedFile);
 
-  const setOpenedFile = useContextSelector(
-    HomeContext,
-    ({ setOpenedFile }) => setOpenedFile
-  );
+  const setOpenedFile = useContextSelector(HomeContext, ({ setOpenedFile }) => setOpenedFile);
 
   const rotate = useContextSelector(HomeContext, ({ rotate }) => rotate);
 
-  const canRotate = useContextSelector(
-    HomeContext,
-    ({ canRotate }) => canRotate
-  );
+  const canRotate = useContextSelector(HomeContext, ({ canRotate }) => canRotate);
 
   const closeDialog = useCallback(() => setOpenedFile(null), []);
 
@@ -78,9 +69,7 @@ const HomeHandlerDialog = () => {
         >
           <AppBar position="static" title={openedFile.name}>
             <DialogTitle disableTypography className={styles.dialogTitle}>
-              <Typography className={styles.dialogTitleTypography}>
-                {openedFile.name}
-              </Typography>
+              <Typography className={styles.dialogTitleTypography}>{openedFile.name}</Typography>
               <IconButton
                 size="medium"
                 disabled={!canRotate(-1)}
@@ -104,7 +93,7 @@ const HomeHandlerDialog = () => {
             </DialogTitle>
           </AppBar>
           <DialogContent className={styles.dialogContent}>
-            <GlobHandler.Component />
+            <GlobHandler.Component config={{}} />
           </DialogContent>
         </Dialog>
       </div>

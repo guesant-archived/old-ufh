@@ -6,9 +6,19 @@ export type IHandlerDefinitionMeta = {
   description?: string;
 };
 
-export type IHandlerDefinition<Meta = IHandlerDefinitionMeta> = {
+export type IHandlerDefinitionConfigComponentProps<Config = any> = {
+  config: Config;
+  onClose: () => void;
+  updateConfig: (fn: (draft: Config) => void) => void;
+};
+
+export type IHandlerDefinitionComponentProps<Config = any> = {
+  config: Config;
+};
+
+export type IHandlerDefinition<IConfig = any, Meta = IHandlerDefinitionMeta> = {
   id: string;
   meta?: Meta;
-  Component: LoadableComponent<unknown>;
-  // Component: ComponentType;
+  Component: LoadableComponent<IHandlerDefinitionComponentProps<IConfig>>;
+  ConfigComponent?: LoadableComponent<IHandlerDefinitionConfigComponentProps<IConfig>>;
 };

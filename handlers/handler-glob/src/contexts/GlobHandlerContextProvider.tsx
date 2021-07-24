@@ -3,6 +3,7 @@ import { IHandlerDefinition } from "@ufh/react-services/src/types/IHandlerDefini
 import React, { useCallback, useState } from "react";
 import { useContextSelector } from "use-context-selector";
 import { useMatchedHandlersSelectionFromGlobHandler } from "../hooks/useMatchedHandlersSelectionFromGlobHandler";
+import { ISelectedHandler } from "../hooks/ISelectedHandler";
 import { useOpenedFileGlob } from "../hooks/useOpenedFileGlob";
 import { GlobHandlerContext } from "./GlobHandlerContext";
 
@@ -14,10 +15,7 @@ export const GlobHandlerContextProvider: React.FC<{}> = ({ children }) => {
 
   const [rememberSelection, setRememberSelection] = useState(true);
 
-  const toggleRememberSelection = useCallback(
-    () => setRememberSelection((value) => !value),
-    []
-  );
+  const toggleRememberSelection = useCallback(() => setRememberSelection((value) => !value), []);
 
   const addGlobHandler = useContextSelector(
     GlobHandlersContext,
@@ -25,10 +23,13 @@ export const GlobHandlerContextProvider: React.FC<{}> = ({ children }) => {
   );
 
   const handleSelectHandlerDefinition = useCallback(
-    (value: IHandlerDefinition) => {
+    ({ definition, config }: ISelectedHandler) => {
       rememberSelection
-        ? addGlobHandler({ pattern: glob, handlers: [value.id] })
-        : setSelectedHandlerDefinition(value);
+        ? addGlobHandler({
+            pattern: glob,
+            handlers: [{ id: definition.id, config }],
+          })
+        : setSelectedHandlerDefinition({ definition, config });
     },
     [addGlobHandler, rememberSelection, setSelectedHandlerDefinition, glob]
   );

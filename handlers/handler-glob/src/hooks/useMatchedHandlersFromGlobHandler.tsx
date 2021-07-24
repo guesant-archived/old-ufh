@@ -1,7 +1,7 @@
 import { HandlersContext } from "@ufh/react-services/src/contexts/HandlersContext";
-import { IHandlerDefinition } from "@ufh/react-services/src/types/IHandlerDefinition";
 import { useEffect, useState } from "react";
 import { useContextSelector } from "use-context-selector";
+import { IMatchedHandler } from "./IMatchedHandler";
 import { useMatchedGlobHandler } from "./useMatchedGlobHandler";
 
 export const useMatchedHandlersFromGlobHandler = () => {
@@ -9,20 +9,18 @@ export const useMatchedHandlersFromGlobHandler = () => {
 
   const allHandlers = useContextSelector(HandlersContext, ({ list }) => list);
 
-  const getHandler = useContextSelector(
-    HandlersContext,
-    ({ getHandler }) => getHandler
-  );
+  const getHandler = useContextSelector(HandlersContext, ({ getHandler }) => getHandler);
 
-  const [matchedHandlers, setMatchedHandlers] = useState<IHandlerDefinition[]>(
-    []
-  );
+  const [matchedHandlers, setMatchedHandlers] = useState<IMatchedHandler[]>([]);
 
   useEffect(() => {
     setMatchedHandlers(
       matchedGlobHandler
-        ? matchedGlobHandler.handlers.map((i) => getHandler(i)!)
-        : allHandlers
+        ? matchedGlobHandler.handlers.map(({ id, config }) => ({
+            config,
+            definition: getHandler(id)!,
+          }))
+        : allHandlers.map((definition) => ({ definition, config: {} }))
     );
   }, [allHandlers, matchedGlobHandler]);
 
