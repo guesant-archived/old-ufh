@@ -12,7 +12,11 @@ const RenderMatched = memo(() => {
   );
 
   if (selectedHandlerDefinition) {
-    return createElement(selectedHandlerDefinition.Component, {});
+    const {
+      config,
+      definition: { Component },
+    } = selectedHandlerDefinition;
+    return createElement(Component, { config });
   }
 
   return <SelectHandler />;
