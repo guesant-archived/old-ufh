@@ -9,19 +9,21 @@ import { useContextSelector } from "use-context-selector";
 import { IGlobHandler } from "@ufh/react-services/src/types/IGlobHandler";
 import SettingsGlobHandler from "../SettingsGlobHandler";
 
-const SettingsGlobHandlersListEntry: React.FC<{ globHandler: IGlobHandler }> = memo(
-  ({ globHandler }) => (
+const SettingsGlobHandlersListEntry: React.FC<{ globHandler: IGlobHandler }> =
+  memo(({ globHandler }) => (
     <SettingsGlobHandlerContextProvider globHandler={globHandler}>
       <MuiListItem>
         <SettingsGlobHandler />
       </MuiListItem>
       <Divider />
     </SettingsGlobHandlerContextProvider>
-  )
-);
+  ));
 
 const SettingsGlobHandlersList = () => {
-  const globHandlers = useContextSelector(GlobHandlersContext, ({ list }) => list);
+  const globHandlers = useContextSelector(
+    GlobHandlersContext,
+    ({ list }) => list
+  );
   return (
     <div>
       <MuiList>

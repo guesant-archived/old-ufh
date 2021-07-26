@@ -25,7 +25,11 @@ const SelectHandlerListItem: React.FC<ISelectHandlerListItem> = ({
     <Fragment key={definition.id}>
       <Divider />
       <ListItem button onClick={handleClick}>
-        <ListItemText primary={definition.meta?.title ?? definition.meta?.slug ?? definition.id} />
+        <ListItemText
+          primary={
+            definition.meta?.title ?? definition.meta?.slug ?? definition.id
+          }
+        />
         <Tooltip placement="left" title={definition.meta?.slug ?? ""}>
           <ListItemAvatar>
             <ArrowRightIcon />

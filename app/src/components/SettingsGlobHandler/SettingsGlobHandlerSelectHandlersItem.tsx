@@ -26,7 +26,10 @@ export const SettingsGlobHandlerSelectHandlersItem: React.FC<{
     ({ toggleConfig }) => toggleConfig
   );
 
-  const handleToggleConfigClick = useCallback(() => toggleConfig(def.id), [def]);
+  const handleToggleConfigClick = useCallback(
+    () => toggleConfig(def.id),
+    [def]
+  );
 
   const handleSecondaryActionClick = useCallback(
     (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => e.stopPropagation(),
@@ -36,7 +39,10 @@ export const SettingsGlobHandlerSelectHandlersItem: React.FC<{
   return (
     <>
       <Checkbox checked={isChecked} />
-      <ListItemText style={{ marginRight: "16px" }} primary={def.meta?.slug ?? def.id} />
+      <ListItemText
+        style={{ marginRight: "16px" }}
+        primary={def.meta?.slug ?? def.id}
+      />
       {def.ConfigComponent && isChecked && (
         <ListItemSecondaryAction onClick={handleSecondaryActionClick}>
           <IconButton onClick={handleToggleConfigClick} edge="end">

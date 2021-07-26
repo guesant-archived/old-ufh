@@ -13,4 +13,6 @@ type ISettingsGlobHandlerContext = {
   isConfigOpened: (id: IHandlerDefinition["id"]) => boolean;
 };
 
-export const SettingsGlobHandlerContext = createContext({} as ISettingsGlobHandlerContext);
+export const SettingsGlobHandlerContext = createContext(
+  {} as ISettingsGlobHandlerContext
+);

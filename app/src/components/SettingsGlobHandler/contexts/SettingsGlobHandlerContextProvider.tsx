@@ -11,7 +11,10 @@ type RecipeFunction<T> = (draft: T) => void;
 export const SettingsGlobHandlerContextProvider: React.FC<{
   globHandler: IGlobHandler;
 }> = ({ globHandler, children }) => {
-  const setGlobHandlerList = useContextSelector(GlobHandlersContext, ({ setList }) => setList);
+  const setGlobHandlerList = useContextSelector(
+    GlobHandlersContext,
+    ({ setList }) => setList
+  );
 
   const updateGlobHandler = useCallback(
     (recipe: RecipeFunction<IGlobHandler>) => {

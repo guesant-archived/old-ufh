@@ -9,7 +9,10 @@ const SelectHandlerList = () => {
   return (
     <List>
       {matchedHandlers.map((matchedHandler) => (
-        <SelectHandlerListItem matchedHandler={matchedHandler} key={matchedHandler.definition.id} />
+        <SelectHandlerListItem
+          matchedHandler={matchedHandler}
+          key={matchedHandler.definition.id}
+        />
       ))}
       <Divider />
     </List>

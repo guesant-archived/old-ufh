@@ -10,10 +10,15 @@ import { SettingsGlobHandlerContext } from "./contexts/SettingsGlobHandlerContex
 import { SettingsGlobHandlerSelectHandlersItem } from "./SettingsGlobHandlerSelectHandlersItem";
 import SettingsGlobHandlerSelectHandlersItemConfig from "./SettingsGlobHandlerSelectHandlersItemConfig";
 
-const RenderSelected = (selected: unknown) => <span>{(selected as string[]).join(", ")}</span>;
+const RenderSelected = (selected: unknown) => (
+  <span>{(selected as string[]).join(", ")}</span>
+);
 
 const SettingsGlobHandlerSelectHandlers = memo(() => {
-  const allAppHandlers = useContextSelector(HandlersContext, ({ list }) => list);
+  const allAppHandlers = useContextSelector(
+    HandlersContext,
+    ({ list }) => list
+  );
 
   const entryHandlers = useContextSelector(
     SettingsGlobHandlerContext,
@@ -25,17 +30,20 @@ const SettingsGlobHandlerSelectHandlers = memo(() => {
     ({ updateGlobHandler }) => updateGlobHandler
   );
 
-  const handleChange = useCallback((e: React.ChangeEvent<{ value: string[] }>) => {
-    updateGlobHandler((draft) => {
-      draft.handlers = (e.target.value as string[]).map(
-        (id) =>
-          draft.handlers.find(({ id: handlerID }) => id === handlerID) || {
-            id,
-            config: {},
-          }
-      );
-    });
-  }, []);
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<{ value: string[] }>) => {
+      updateGlobHandler((draft) => {
+        draft.handlers = (e.target.value as string[]).map(
+          (id) =>
+            draft.handlers.find(({ id: handlerID }) => id === handlerID) || {
+              id,
+              config: {},
+            }
+        );
+      });
+    },
+    []
+  );
 
   return (
     <>

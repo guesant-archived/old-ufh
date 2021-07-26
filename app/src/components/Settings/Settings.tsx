@@ -24,7 +24,12 @@ const Settings = () => {
   const styles = useStyles();
   return (
     <div>
-      <Dialog open fullWidth maxWidth="md" classes={{ paper: styles.dialogPaper }}>
+      <Dialog
+        open
+        fullWidth
+        maxWidth="md"
+        classes={{ paper: styles.dialogPaper }}
+      >
         <SettingsHeader />
         <DialogContent className={styles.dialogContent}>
           <SettingsGlobHandlers />

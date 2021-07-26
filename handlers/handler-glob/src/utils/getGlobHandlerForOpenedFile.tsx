@@ -6,5 +6,8 @@ export const getGlobHandlerForOpenedFile = (
   openedFile: OpenedFile,
   globHandlersList: IGlobHandler[]
 ) =>
-  globHandlersList.find(({ pattern }) => minimatch(openedFile.name, pattern)) ||
-  null;
+  globHandlersList.find(({ pattern }) =>
+    minimatch(openedFile.name, pattern, {
+      dot: true,
+    })
+  ) || null;

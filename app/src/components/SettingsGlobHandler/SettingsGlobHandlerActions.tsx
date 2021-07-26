@@ -8,11 +8,15 @@ import { useContextSelector } from "use-context-selector";
 import { SettingsGlobHandlerContext } from "./contexts/SettingsGlobHandlerContext";
 
 const ActionAdd = () => {
-  const id = useContextSelector(SettingsGlobHandlerContext, ({ globHandler: { _id } }) => _id);
+  const id = useContextSelector(
+    SettingsGlobHandlerContext,
+    ({ globHandler: { _id } }) => _id
+  );
 
   const isFilled = useContextSelector(
     SettingsGlobHandlerContext,
-    ({ globHandler: { handlers, pattern } }) => pattern.length > 0 || handlers.length > 0
+    ({ globHandler: { handlers, pattern } }) =>
+      pattern.length > 0 || handlers.length > 0
   );
 
   const addGlobHandler = useContextSelector(
@@ -35,11 +39,15 @@ const ActionAdd = () => {
 };
 
 const ActionRemove = () => {
-  const id = useContextSelector(SettingsGlobHandlerContext, ({ globHandler: { _id } }) => _id);
+  const id = useContextSelector(
+    SettingsGlobHandlerContext,
+    ({ globHandler: { _id } }) => _id
+  );
 
   const isFilled = useContextSelector(
     SettingsGlobHandlerContext,
-    ({ globHandler: { handlers, pattern } }) => pattern.length > 0 || handlers.length > 0
+    ({ globHandler: { handlers, pattern } }) =>
+      pattern.length > 0 || handlers.length > 0
   );
 
   const removeGlobHandler = useContextSelector(
@@ -47,7 +55,10 @@ const ActionRemove = () => {
     ({ removeGlobHandler }) => removeGlobHandler
   );
 
-  const handleRemoveClick = useCallback(() => removeGlobHandler(id), [id, removeGlobHandler]);
+  const handleRemoveClick = useCallback(
+    () => removeGlobHandler(id),
+    [id, removeGlobHandler]
+  );
 
   return (
     <Tooltip title="Remover item">

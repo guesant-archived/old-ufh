@@ -20,5 +20,7 @@ export type IHandlerDefinition<IConfig = any, Meta = IHandlerDefinitionMeta> = {
   id: string;
   meta?: Meta;
   Component: LoadableComponent<IHandlerDefinitionComponentProps<IConfig>>;
-  ConfigComponent?: LoadableComponent<IHandlerDefinitionConfigComponentProps<IConfig>>;
+  ConfigComponent?: LoadableComponent<
+    IHandlerDefinitionConfigComponentProps<IConfig>
+  >;
 };

@@ -15,7 +15,10 @@ export const GlobHandlerContextProvider: React.FC<{}> = ({ children }) => {
 
   const [rememberSelection, setRememberSelection] = useState(true);
 
-  const toggleRememberSelection = useCallback(() => setRememberSelection((value) => !value), []);
+  const toggleRememberSelection = useCallback(
+    () => setRememberSelection((value) => !value),
+    []
+  );
 
   const addGlobHandler = useContextSelector(
     GlobHandlersContext,

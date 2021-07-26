@@ -1,8 +1,11 @@
 import loadable from "@loadable/component";
-import { IHandlerDefinition } from "@ufh/react-services/src/types/IHandlerDefinition";
+import {
+  IHandlerDefinition,
+  IHandlerDefinitionComponentProps,
+} from "@ufh/react-services/src/types/IHandlerDefinition";
 
-const Component = loadable(
-  () => import("./components/EditorContainer/EditorContainer")
+const Component = loadable<IHandlerDefinitionComponentProps>(
+  () => import("./components/MonacoEditorHandler")
 );
 
 const HandlerDefinition: IHandlerDefinition = {

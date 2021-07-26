@@ -11,14 +11,15 @@ export const useMatchedGlobHandler = () => {
     ({ openedFile }) => openedFile
   );
 
-  const globHandlers = useContextSelector(
+  const globHandlersList = useContextSelector(
     GlobHandlersContext,
-    ({ list }) => list
+    ({ validList }) => validList
   );
 
   const matchedGlobHandler = useMemo<IGlobHandler | null>(
-    () => openedFile && getGlobHandlerForOpenedFile(openedFile, globHandlers),
-    [openedFile, globHandlers]
+    () =>
+      openedFile && getGlobHandlerForOpenedFile(openedFile, globHandlersList),
+    [openedFile, globHandlersList]
   );
 
   return matchedGlobHandler;

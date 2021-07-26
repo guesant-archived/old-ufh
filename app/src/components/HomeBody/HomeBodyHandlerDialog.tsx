@@ -47,13 +47,22 @@ const useStyles = makeStyles((theme) =>
 const HomeHandlerDialog = () => {
   const styles = useStyles();
 
-  const openedFile = useContextSelector(HomeContext, ({ openedFile }) => openedFile);
+  const openedFile = useContextSelector(
+    HomeContext,
+    ({ openedFile }) => openedFile
+  );
 
-  const setOpenedFile = useContextSelector(HomeContext, ({ setOpenedFile }) => setOpenedFile);
+  const setOpenedFile = useContextSelector(
+    HomeContext,
+    ({ setOpenedFile }) => setOpenedFile
+  );
 
   const rotate = useContextSelector(HomeContext, ({ rotate }) => rotate);
 
-  const canRotate = useContextSelector(HomeContext, ({ canRotate }) => canRotate);
+  const canRotate = useContextSelector(
+    HomeContext,
+    ({ canRotate }) => canRotate
+  );
 
   const closeDialog = useCallback(() => setOpenedFile(null), []);
 
@@ -69,14 +78,16 @@ const HomeHandlerDialog = () => {
         >
           <AppBar position="static" title={openedFile.name}>
             <DialogTitle disableTypography className={styles.dialogTitle}>
-              <Typography className={styles.dialogTitleTypography}>{openedFile.name}</Typography>
+              <Typography className={styles.dialogTitleTypography}>
+                {openedFile.name}
+              </Typography>
               <IconButton
                 size="medium"
+                color="inherit"
                 disabled={!canRotate(-1)}
                 onClick={() => rotate(-1)}
-                color="inherit"
               >
-                <NavigateBeforeIcon />
+                <NavigateBeforeIcon fontSize="small" />
               </IconButton>
               <IconButton
                 size="medium"
@@ -84,11 +95,11 @@ const HomeHandlerDialog = () => {
                 onClick={() => rotate(1)}
                 color="inherit"
               >
-                <NavigateNextIcon />
+                <NavigateNextIcon fontSize="small" />
               </IconButton>
               <Divider orientation="vertical" className={styles.titleDivider} />
               <IconButton size="medium" onClick={closeDialog} color="inherit">
-                <CloseIcon />
+                <CloseIcon fontSize="small" />
               </IconButton>
             </DialogTitle>
           </AppBar>

@@ -9,7 +9,10 @@ export const useMatchedHandlersFromGlobHandler = () => {
 
   const allHandlers = useContextSelector(HandlersContext, ({ list }) => list);
 
-  const getHandler = useContextSelector(HandlersContext, ({ getHandler }) => getHandler);
+  const getHandler = useContextSelector(
+    HandlersContext,
+    ({ getHandler }) => getHandler
+  );
 
   const [matchedHandlers, setMatchedHandlers] = useState<IMatchedHandler[]>([]);
 
