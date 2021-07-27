@@ -1,0 +1,51 @@
+.treeItem {
+  width: 100%;
+  overflow: hidden;
+}
+
+.treeItem .content {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+.treeItem.directory .content {
+  padding-left: 4px !important;
+  padding-right: 2px !important;
+}
+
+.treeItem.file .content {
+  padding-left: 8px !important;
+  padding-right: 4px !important;
+}
+
+.treeItem > .content {
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+
+.treeItem > .content:hover {
+  background-color: var(--hover-bg);
+}
+
+.treeItem.selected > .content {
+  border-color: var(--selected-border);
+  background-color: var(--selected-bg);
+}
+
+.treeItem .label {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+}
+
+.treeItem > .content .label,
+.treeItem.selected > .content .label {
+  background-color: transparent !important;
+}
+
+.iconContainer {
+  gap: 4px;
+  margin-right: 4px;
+  width: initial;
+}

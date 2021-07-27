@@ -1,4 +1,4 @@
-import { HandlersContext } from "../contexts/HandlersContext";
+import { HandlersContext } from "./HandlersContext";
 import { IHandlerDefinition } from "../types/IHandlerDefinition";
 import React, { useCallback, useState } from "react";
 

@@ -48,14 +48,13 @@ const FilesTable: React.FC<FilesTableProps> = memo(
       ({ list }) => list
     );
 
-    console.log("aaaaaasdasd", openedFilesList);
     return (
       <DataGrid
         pageSize={5}
-        checkboxSelection={selection}
         rows={openedFilesList}
         disableSelectionOnClick
         columns={FilesTableColumns}
+        checkboxSelection={selection}
         onRowClick={(e) => void onSelectFile?.(e.row as AbstractOpenedFile)}
       />
     );
