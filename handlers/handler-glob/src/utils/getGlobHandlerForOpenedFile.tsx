@@ -1,5 +1,6 @@
 import { AbstractOpenedFile } from "@ufh/react-services/src/AbstractOpenedFile";
 import { IGlobHandler } from "@ufh/react-services/src/types/IGlobHandler";
+import { minimatchDefaultOptions } from "@ufh/react-services/src/consts/minimatchOptions";
 import minimatch from "minimatch";
 
 export const getGlobHandlerForOpenedFile = (
@@ -7,7 +8,5 @@ export const getGlobHandlerForOpenedFile = (
   globHandlersList: IGlobHandler[]
 ) =>
   globHandlersList.find(({ pattern }) =>
-    minimatch(openedFile.name, pattern, {
-      dot: true,
-    })
+    minimatch(openedFile.name, pattern, minimatchDefaultOptions)
   ) || null;
