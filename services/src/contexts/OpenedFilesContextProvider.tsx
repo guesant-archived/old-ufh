@@ -21,9 +21,11 @@ export const OpenedFilesContextProvider: React.FC<OpenedFilesContextProviderProp
       });
     }, []);
 
-    const removeFiles = useCallback((ids: AbstractOpenedFile["id"][]) => {
+    const removeFiles = useCallback((idsQuery: AbstractOpenedFile["id"][]) => {
       setOpenedFiles((currentlyOpenedFiles) =>
-        currentlyOpenedFiles.filter((i) => !ids.includes(i.id))
+        currentlyOpenedFiles.filter(
+          (openedFile) => !idsQuery.includes(openedFile.id)
+        )
       );
     }, []);
 

@@ -9,9 +9,11 @@ import { OpenedFilesContext } from "../contexts/OpenedFilesContext";
 
 type FilesTableProps = Omit<
   React.ComponentProps<typeof DataGrid>,
-  "rows" | "columns"
+  "rows" | "columns" | "selectionModel" | "onSelectionModelChange"
 > & {
   onSelectFile?: (openedFile: AbstractOpenedFile) => void;
+  selectionModel?: AbstractOpenedFile["id"][];
+  onSelectionModelChange?: (selectionModel: AbstractOpenedFile["id"][]) => void;
 };
 
 const FilesTableColumns: GridColDef[] = [
@@ -57,7 +59,7 @@ const FilesTable: React.FC<FilesTableProps> = memo(
         disableSelectionOnClick
         columns={FilesTableColumns}
         onRowClick={(e) => void onSelectFile?.(e.row as AbstractOpenedFile)}
-        {...props}
+        {...(props as any)}
       />
     );
   }

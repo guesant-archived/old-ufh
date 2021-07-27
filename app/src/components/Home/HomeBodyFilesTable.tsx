@@ -12,9 +12,25 @@ export const HomeFilesTable = () => {
     HomeContext,
     ({ setOpenedFile }) => setOpenedFile
   );
+
+  const selectedIDS = useContextSelector(
+    HomeContext,
+    ({ selectedIDS }) => selectedIDS
+  );
+
+  const setSelectedIDS = useContextSelector(
+    HomeContext,
+    ({ setSelectedIDS }) => setSelectedIDS
+  );
+
   return (
     <div style={{ height: 400, width: "100%" }}>
-      <FilesTable onSelectFile={setOpenedFile} />
+      <FilesTable
+        checkboxSelection
+        onSelectFile={setOpenedFile}
+        selectionModel={selectedIDS}
+        onSelectionModelChange={setSelectedIDS}
+      />
     </div>
   );
 };

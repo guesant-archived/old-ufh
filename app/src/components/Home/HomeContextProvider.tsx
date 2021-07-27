@@ -3,12 +3,13 @@ import React, { useState } from "react";
 import { HomeContext } from "./HomeContext";
 
 export const HomeContextProvider: React.FC = ({ children }) => {
+  const [selectedIDS, setSelectedIDS] = useState<string[]>([]);
   const [openedFile, setOpenedFile] = useState<AbstractOpenedFile | null>(null);
 
   return (
     <HomeContext.Provider
       children={children}
-      value={{ openedFile, setOpenedFile }}
+      value={{ openedFile, setOpenedFile, selectedIDS, setSelectedIDS }}
     />
   );
 };

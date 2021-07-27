@@ -7,6 +7,10 @@ type IHomeContext = {
   setOpenedFile: React.Dispatch<
     React.SetStateAction<AbstractOpenedFile | null>
   >;
+  selectedIDS: AbstractOpenedFile["id"][];
+  setSelectedIDS: React.Dispatch<
+    React.SetStateAction<AbstractOpenedFile["id"][]>
+  >;
 };
 
 export const HomeContext = createContext({} as IHomeContext);
