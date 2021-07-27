@@ -1,7 +1,7 @@
-import { OpenedFile } from "../OpenedFile";
-import { AbstractOpenedFile } from "../AbstractOpenedFile";
-import { OpenedFilesContext } from "../contexts/OpenedFilesContext";
 import React, { useCallback, useState } from "react";
+import { AbstractOpenedFile } from "../AbstractOpenedFile";
+import { OpenedFilesContext } from "./OpenedFilesContext";
+import { OpenedFile } from "../OpenedFile";
 
 type OpenedFilesContextProviderProps = {
   initialFiles?: AbstractOpenedFile[];
@@ -30,7 +30,12 @@ export const OpenedFilesContextProvider: React.FC<OpenedFilesContextProviderProp
     return (
       <OpenedFilesContext.Provider
         children={children}
-        value={{ addFiles, removeFiles, list: openedFiles }}
+        value={{
+          addFiles,
+          removeFiles,
+          list: openedFiles,
+          setList: setOpenedFiles,
+        }}
       />
     );
   };

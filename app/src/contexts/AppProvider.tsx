@@ -1,7 +1,7 @@
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { GlobHandlersContextProvider } from "@ufh/react-services/src/contexts/GlobHandlersContextProvider";
-import { HandlersProvider } from "@ufh/react-services/src/providers/HandlersProvider";
-import { OpenedFilesContextProvider } from "@ufh/react-services/src/providers/OpenedFilesContextProvider";
+import { HandlersProvider } from "@ufh/react-services/src/contexts/HandlersProvider";
+import { OpenedFilesContextProvider } from "@ufh/react-services/src/contexts/OpenedFilesContextProvider";
 import React from "react";
 import { ThemeProvider } from "./ThemeProvider";
 

@@ -1,6 +1,6 @@
 import { AbstractOpenedFile } from "../AbstractOpenedFile";
 import React from "react";
-import { OpenedFileContext } from "../contexts/OpenedFileContext";
+import { OpenedFileContext } from "./OpenedFileContext";
 
 export const OpenedFileContextProvider: React.FC<{
   openedFile: AbstractOpenedFile;

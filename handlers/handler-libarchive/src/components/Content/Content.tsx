@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
 import GlobHandler from "@ufh/react-handler-glob";
 import Loading from "@ufh/react-services/src/components/Loading";
-import { OpenedFileContextProvider } from "@ufh/react-services/src/providers/OpenedFileContextProvider";
+import { OpenedFileContextProvider } from "@ufh/react-services/src/contexts/OpenedFileContextProvider";
 import clsx from "clsx";
 import React from "react";
 import { useContextSelector } from "use-context-selector";
