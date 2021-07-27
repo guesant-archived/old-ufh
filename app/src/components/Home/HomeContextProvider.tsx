@@ -1,4 +1,4 @@
-import { OpenedFile } from "@ufh/react-services/src/OpenedFile";
+import { AbstractOpenedFile } from "@ufh/react-services/src/AbstractOpenedFile";
 import React, { useState } from "react";
 import { useCallback } from "react";
 import { useContextSelector } from "use-context-selector";
@@ -6,7 +6,7 @@ import { OpenedFilesContext } from "@ufh/react-services/src/contexts/OpenedFiles
 import { HomeContext } from "./HomeContext";
 
 export const HomeContextProvider: React.FC = ({ children }) => {
-  const [openedFile, setOpenedFile] = useState<OpenedFile | null>(null);
+  const [openedFile, setOpenedFile] = useState<AbstractOpenedFile | null>(null);
 
   const openedFilesList = useContextSelector(
     OpenedFilesContext,

@@ -1,9 +1,9 @@
-import { OpenedFile } from "@ufh/react-services/src/OpenedFile";
+import { AbstractOpenedFile } from "@ufh/react-services/src/AbstractOpenedFile";
 import { IGlobHandler } from "@ufh/react-services/src/types/IGlobHandler";
 import minimatch from "minimatch";
 
 export const getGlobHandlerForOpenedFile = (
-  openedFile: OpenedFile,
+  openedFile: AbstractOpenedFile,
   globHandlersList: IGlobHandler[]
 ) =>
   globHandlersList.find(({ pattern }) =>

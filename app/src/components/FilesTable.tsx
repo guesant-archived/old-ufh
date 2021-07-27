@@ -1,6 +1,6 @@
 import { DataGrid, GridColDef } from "@material-ui/data-grid";
+import { AbstractOpenedFile } from "@ufh/react-services/src/AbstractOpenedFile";
 import { OpenedFilesContext } from "@ufh/react-services/src/contexts/OpenedFilesContext";
-import { OpenedFile } from "@ufh/react-services/src/OpenedFile";
 import { formatDistance } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import filesize from "filesize";
@@ -8,7 +8,7 @@ import React, { memo } from "react";
 import { useContextSelector } from "use-context-selector";
 
 type FilesTableProps = {
-  onSelectFile?: (openedFile: OpenedFile) => void;
+  onSelectFile?: (openedFile: AbstractOpenedFile) => void;
 };
 
 const FilesTableColumns: GridColDef[] = [
@@ -52,7 +52,7 @@ const FilesTable: React.FC<FilesTableProps> = memo(({ onSelectFile }) => {
       rows={openedFilesList}
       disableSelectionOnClick
       columns={FilesTableColumns}
-      onRowClick={(e) => void onSelectFile?.(e.row as OpenedFile)}
+      onRowClick={(e) => void onSelectFile?.(e.row as AbstractOpenedFile)}
     />
   );
 });

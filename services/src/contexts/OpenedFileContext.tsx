@@ -1,8 +1,8 @@
-import { OpenedFile } from "../OpenedFile";
+import { AbstractOpenedFile } from "../AbstractOpenedFile";
 import { createContext } from "use-context-selector";
 
 type IOpenedFileContext = {
-  openedFile: OpenedFile | null;
+  openedFile: AbstractOpenedFile | null;
 };
 
 export const OpenedFileContext = createContext({} as IOpenedFileContext);

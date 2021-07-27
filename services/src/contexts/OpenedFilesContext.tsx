@@ -1,10 +1,10 @@
-import { OpenedFile } from "../OpenedFile";
+import { AbstractOpenedFile } from "../AbstractOpenedFile";
 import { createContext } from "use-context-selector";
 
 type IOpenedFilesContext = {
-  list: OpenedFile[];
+  list: AbstractOpenedFile[];
   addFiles: (files: File[]) => void;
-  removeFiles: (ids: OpenedFile["id"][]) => void;
+  removeFiles: (ids: AbstractOpenedFile["id"][]) => void;
 };
 
 export const OpenedFilesContext = createContext({} as IOpenedFilesContext);

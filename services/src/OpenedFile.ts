@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid";
+import { AbstractOpenedFile } from "./AbstractOpenedFile";
 
-export class OpenedFile {
+export class OpenedFile implements AbstractOpenedFile {
   constructor(public file: File, public id: string = nanoid()) {}
 
   get size() {
