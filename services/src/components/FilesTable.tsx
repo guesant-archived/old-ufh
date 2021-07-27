@@ -1,14 +1,16 @@
 import { DataGrid, GridColDef } from "@material-ui/data-grid";
-import { AbstractOpenedFile } from "../AbstractOpenedFile";
-import { OpenedFilesContext } from "../contexts/OpenedFilesContext";
 import { formatDistance } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import filesize from "filesize";
 import React, { memo } from "react";
 import { useContextSelector } from "use-context-selector";
+import { AbstractOpenedFile } from "../AbstractOpenedFile";
+import { OpenedFilesContext } from "../contexts/OpenedFilesContext";
 
-type FilesTableProps = {
-  selection?: boolean;
+type FilesTableProps = Omit<
+  React.ComponentProps<typeof DataGrid>,
+  "rows" | "columns"
+> & {
   onSelectFile?: (openedFile: AbstractOpenedFile) => void;
 };
 
@@ -42,7 +44,7 @@ const FilesTableColumns: GridColDef[] = [
 ];
 
 const FilesTable: React.FC<FilesTableProps> = memo(
-  ({ onSelectFile, selection = true }) => {
+  ({ onSelectFile, ...props }) => {
     const openedFilesList = useContextSelector(
       OpenedFilesContext,
       ({ list }) => list
@@ -54,8 +56,8 @@ const FilesTable: React.FC<FilesTableProps> = memo(
         rows={openedFilesList}
         disableSelectionOnClick
         columns={FilesTableColumns}
-        checkboxSelection={selection}
         onRowClick={(e) => void onSelectFile?.(e.row as AbstractOpenedFile)}
+        {...props}
       />
     );
   }
