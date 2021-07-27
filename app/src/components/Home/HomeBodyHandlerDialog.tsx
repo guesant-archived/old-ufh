@@ -14,6 +14,7 @@ import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import { useOpenedFilesRotate } from "../../hooks/useHomeOpenedFilesRotate";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -55,6 +56,56 @@ const useStyles = makeStyles((theme) =>
   })
 );
 
+const RotateButtons = () => {
+  const styles = useStyles();
+  const { rotate, canRotate } = useOpenedFilesRotate();
+
+  const prev = useCallback(() => rotate(-1), []);
+  const next = useCallback(() => rotate(1), []);
+
+  return (
+    <>
+      <IconButton
+        size="medium"
+        className={styles.btn}
+        color="inherit"
+        disabled={!canRotate(-1)}
+        onClick={prev}
+        children={<NavigateBeforeIcon fontSize="small" />}
+      />
+      <IconButton
+        size="medium"
+        color="inherit"
+        className={styles.btn}
+        disabled={!canRotate(1)}
+        onClick={next}
+        children={<NavigateNextIcon fontSize="small" />}
+      />
+    </>
+  );
+};
+
+const CloseButton = () => {
+  const styles = useStyles();
+
+  const setOpenedFile = useContextSelector(
+    HomeContext,
+    ({ setOpenedFile }) => setOpenedFile
+  );
+
+  const closeDialog = useCallback(() => setOpenedFile(null), []);
+
+  return (
+    <IconButton
+      size="medium"
+      color="inherit"
+      onClick={closeDialog}
+      className={styles.closeBtn}
+      children={<CloseIcon fontSize="small" />}
+    />
+  );
+};
+
 const HomeHandlerDialog = () => {
   const styles = useStyles();
 
@@ -63,73 +114,33 @@ const HomeHandlerDialog = () => {
     ({ openedFile }) => openedFile
   );
 
-  const setOpenedFile = useContextSelector(
-    HomeContext,
-    ({ setOpenedFile }) => setOpenedFile
+  if (!openedFile) return null;
+
+  return (
+    <div>
+      <Dialog
+        fullWidth
+        fullScreen
+        maxWidth="lg"
+        open={openedFile !== null}
+        classes={{ paper: styles.dialogPaper }}
+      >
+        <AppBar color="transparent" position="static" title={openedFile.name}>
+          <DialogTitle disableTypography className={styles.dialogTitle}>
+            <Typography className={styles.dialogTitleTypography}>
+              {openedFile.name}
+            </Typography>
+            <RotateButtons />
+            <Divider orientation="vertical" className={styles.titleDivider} />
+            <CloseButton />
+          </DialogTitle>
+        </AppBar>
+        <DialogContent className={styles.dialogContent}>
+          <GlobHandler.Component config={{}} />
+        </DialogContent>
+      </Dialog>
+    </div>
   );
-
-  const rotate = useContextSelector(HomeContext, ({ rotate }) => rotate);
-
-  const canRotate = useContextSelector(
-    HomeContext,
-    ({ canRotate }) => canRotate
-  );
-
-  const closeDialog = useCallback(() => setOpenedFile(null), []);
-
-  if (openedFile) {
-    return (
-      <div>
-        <Dialog
-          fullWidth
-          fullScreen
-          maxWidth="lg"
-          open={openedFile !== null}
-          classes={{ paper: styles.dialogPaper }}
-        >
-          <AppBar color="transparent" position="static" title={openedFile.name}>
-            <DialogTitle disableTypography className={styles.dialogTitle}>
-              <Typography className={styles.dialogTitleTypography}>
-                {openedFile.name}
-              </Typography>
-              <IconButton
-                size="medium"
-                className={styles.btn}
-                color="inherit"
-                disabled={!canRotate(-1)}
-                onClick={() => rotate(-1)}
-              >
-                <NavigateBeforeIcon fontSize="small" />
-              </IconButton>
-              <IconButton
-                size="medium"
-                className={styles.btn}
-                disabled={!canRotate(1)}
-                onClick={() => rotate(1)}
-                color="inherit"
-              >
-                <NavigateNextIcon fontSize="small" />
-              </IconButton>
-              <Divider orientation="vertical" className={styles.titleDivider} />
-              <IconButton
-                size="medium"
-                color="inherit"
-                onClick={closeDialog}
-                className={styles.closeBtn}
-              >
-                <CloseIcon fontSize="small" />
-              </IconButton>
-            </DialogTitle>
-          </AppBar>
-          <DialogContent className={styles.dialogContent}>
-            <GlobHandler.Component config={{}} />
-          </DialogContent>
-        </Dialog>
-      </div>
-    );
-  }
-
-  return null;
 };
 
 export default HomeHandlerDialog;

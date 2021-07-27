@@ -7,9 +7,6 @@ type IHomeContext = {
   setOpenedFile: React.Dispatch<
     React.SetStateAction<AbstractOpenedFile | null>
   >;
-
-  rotate: (rotation: number) => void;
-  canRotate: (rotation: number) => boolean;
 };
 
 export const HomeContext = createContext({} as IHomeContext);
