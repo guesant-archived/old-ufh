@@ -15,8 +15,6 @@
     "@material-ui/lab": "^4.0.0-alpha.60",
     "@ufh/react-handler-glob": "1.0.0",
     "@ufh/react-services": "1.0.0",
-    "date-fns": "^2.22.1",
-    "filesize": "^7.0.0",
     "immer": "^9.0.5",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
