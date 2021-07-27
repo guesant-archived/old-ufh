@@ -2,12 +2,10 @@ import React from "react";
 import AppBar from "../AppBar";
 import HomeHeaderMenu from "./HomeHeaderMenu";
 
-const HomeHeader = () => {
-  return (
-    <AppBar title="Início">
-      <HomeHeaderMenu />
-    </AppBar>
-  );
-};
+const HomeHeader = () => (
+  <AppBar title="Início">
+    <HomeHeaderMenu />
+  </AppBar>
+);
 
 export default HomeHeader;

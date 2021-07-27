@@ -4,7 +4,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import React from "react";
 import { useCallback } from "react";
 import { useContextSelector } from "use-context-selector";
-import { HomeContext } from "../Home/HomeContext";
+import { HomeContext } from "./HomeContext";
 import CloseIcon from "@material-ui/icons/Close";
 import IconButton from "@material-ui/core/IconButton";
 import GlobHandler from "@ufh/react-handler-glob";
@@ -29,17 +29,28 @@ const useStyles = makeStyles((theme) =>
       width: "100%",
       display: "flex",
       alignItems: "center",
-      paddingTop: theme.spacing(0.5),
-      paddingLeft: theme.spacing(2),
-      paddingRight: theme.spacing(1),
-      paddingBottom: theme.spacing(0.5),
+      paddingTop: theme.spacing(0),
+      paddingRight: theme.spacing(0),
+      paddingBottom: theme.spacing(0),
+      paddingLeft: theme.spacing(1.75),
     },
     dialogTitleTypography: {
       flex: 1,
+      fontSize: "14px",
     },
     titleDivider: {
-      marginRight: theme.spacing(0.5),
+      marginRight: theme.spacing(0.25),
+      marginLeft: theme.spacing(0.25),
+    },
+    closeBtn: {
+      marginTop: theme.spacing(0.25),
       marginLeft: theme.spacing(0.5),
+      marginRight: theme.spacing(0.5),
+      marginBottom: theme.spacing(0.25),
+    },
+    btn: {
+      marginTop: theme.spacing(0.25),
+      marginBottom: theme.spacing(0.25),
     },
   })
 );
@@ -76,13 +87,14 @@ const HomeHandlerDialog = () => {
           open={openedFile !== null}
           classes={{ paper: styles.dialogPaper }}
         >
-          <AppBar position="static" title={openedFile.name}>
+          <AppBar color="transparent" position="static" title={openedFile.name}>
             <DialogTitle disableTypography className={styles.dialogTitle}>
               <Typography className={styles.dialogTitleTypography}>
                 {openedFile.name}
               </Typography>
               <IconButton
                 size="medium"
+                className={styles.btn}
                 color="inherit"
                 disabled={!canRotate(-1)}
                 onClick={() => rotate(-1)}
@@ -91,6 +103,7 @@ const HomeHandlerDialog = () => {
               </IconButton>
               <IconButton
                 size="medium"
+                className={styles.btn}
                 disabled={!canRotate(1)}
                 onClick={() => rotate(1)}
                 color="inherit"
@@ -98,7 +111,12 @@ const HomeHandlerDialog = () => {
                 <NavigateNextIcon fontSize="small" />
               </IconButton>
               <Divider orientation="vertical" className={styles.titleDivider} />
-              <IconButton size="medium" onClick={closeDialog} color="inherit">
+              <IconButton
+                size="medium"
+                color="inherit"
+                onClick={closeDialog}
+                className={styles.closeBtn}
+              >
                 <CloseIcon fontSize="small" />
               </IconButton>
             </DialogTitle>

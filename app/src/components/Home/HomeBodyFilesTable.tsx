@@ -1,9 +1,11 @@
 import loadable from "@loadable/component";
 import React from "react";
 import { useContextSelector } from "use-context-selector";
-import { HomeContext } from "../Home/HomeContext";
+import { HomeContext } from "./HomeContext";
 
-const FilesTable = loadable(() => import("../FilesTable"));
+const FilesTable = loadable(
+  () => import("@ufh/react-services/src/components/FilesTable")
+);
 
 export const HomeFilesTable = () => {
   const setOpenedFile = useContextSelector(

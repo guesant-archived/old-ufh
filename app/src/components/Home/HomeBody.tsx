@@ -4,7 +4,7 @@ import { OpenedFileContextProvider } from "@ufh/react-services/src/providers/Ope
 import React, { memo } from "react";
 import { useContextSelector } from "use-context-selector";
 import HomeBodyAddFiles from "./HomeBodyAddFiles";
-import { HomeContext } from "../Home/HomeContext";
+import { HomeContext } from "./HomeContext";
 import { HomeFilesTable } from "./HomeBodyFilesTable";
 
 const HomeHandlerDialog = loadable(() => import("./HomeBodyHandlerDialog"));
